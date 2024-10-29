@@ -38,7 +38,7 @@ We've introduced a new capability into CW, that we're calling `Follow up`. And w
 
 When you're working against a large repository that has complex/inter-file dependencies, it's possible that a simple change/refactoring can impact many other places across the codebase (e.g. updating a shared method signature). And while the plan can do a great job of identifying the core changes needed for a task (the "primary edits"), it can sometimes miss transitive changes that are needed in response (e.g. updating callers of a changed function).
 
-当你在一个具有复杂/文件间依赖关系的大型存储库中工作时，一个简单的更改/重构可能会影响代码库中的许多其他地方（例���，更新共享方法签名）。虽然计划可以很好地识别任务所需的核心更改（“主要编辑”），但有时会遗漏响应所需的传递更改（例如，更新更改函数的调用者）。
+当你在一个具有复杂/文件间依赖关系的大型存储库中工作时，一个简单的更改/重构可能会影响代码库中的许多其他地方（例如，更新共享方法签名）。虽然计划可以很好地识别任务所需的核心更改（“主要编辑”），但有时会遗漏响应所需的传递更改（例如，更新更改函数的调用者）。
 
 To address this, after you've implemented a plan, you can open up the `Commands` tab and click the new `Follow up` button. This will perform a thorough, fine-grained check on your codebase + edits, to see if any additional changes are required, in order to complete your task. And if any follow-ups are detected, it will edit the neccessary files, and add them to your existing implementation 👍
 
@@ -392,4 +392,273 @@ After you've implemented a plan, you'll notice two new buttons in the file diff 
 
 在你实施了一个计划之后，你会注意到文件差异标题中有两个新按钮（在`文件更改`选项卡中），这允许你以两种有趣的方式进入头脑风暴模式：
 
+1. Explaining the changes that were made to the file
+2. Exploring ideas about how to improve the file further
 
+1. 解释对文件所做的更改
+2. 探索如何进一步改进文件的想法
+
+<img src="https://github.com/user-attachments/assets/3968d4ba-a5b5-42bf-96f4-0df4ecf241b9" width="600px" />
+
+These allow you to extend the learning process into a specific change, and make sure that you fully understand the "what?" and "why?" behind an edit, before you ever send a PR.
+
+这些允许你将学习过程扩展到特定的更改中，并确保在你发送PR之前，完全理解编辑背后的“是什么？”和“为什么？”。
+
+<img src="https://github.com/user-attachments/assets/16d6f4f9-5e78-4964-8233-177fcacba980" width="800xp" />
+
+Additionally, by being able to brainstorm with CW on a changed file, you can effectively perform a lightweight code review with it, and get some simple follow-up suggestions. Just in case there's anything else worth doing👍
+
+此外，通过能够在更改的文件上与CW进行头脑风暴，你可以有效地进行轻量级代码审查，并获得一些简单的后续建议。以防还有其他值得做的事情👍
+
+<img src="https://github.com/user-attachments/assets/36193fcb-a5f8-4e72-abe0-0822eb3a7440" width="800px" />
+
+And as if that wasn't enough...the next section is effectively also an extension of brainstorming. But I felt like this section was getting long enough, so I decided to break it up😄
+
+如果这还不够...下一部分实际上也是头脑风暴的扩展。但我觉得这一部分已经够长了，所以我决定把它分开😄
+
+### Create new repository
+
+You can now easily create new repositories from CW, by visiting the [dashboard](https://copilot-workspace.githubnext.com) and clicking the `Create new repository` button at the bottom of the `Recent repositories` section.
+
+你现在可以通过访问[仪表板](https://copilot-workspace.githubnext.com)并点击`最近的存储库`部分底部的`创建新存储库`按钮，从CW轻松创建新存储库。
+
+<img src="https://github.com/user-attachments/assets/bf25ea62-db58-489b-ba81-55aeaf49d796" width="500px" />
+
+This will take you into a new session where you can define (or brainstorm!) what you want the new repo to include. And when you finish planning/implementing the code, you can click the `Create repository` button to create the repository and then commit your changes.
+
+这将带你进入一个新会话，你可以在其中定义（或头脑风暴！）你希望新存储库包含的内容。当你完成计划/实施代码时，你可以点击`创建存储库`按钮来创建存储库，然后提交你的更改。
+
+<img src="https://github.com/user-attachments/assets/e1c8b1b9-ca3a-40ea-a25f-3929772aa19e" width="800px" />
+
+Additionally, if you'd like to create a repository from an existing template (as opposed to a blank repo), then simply click the `Choose a repository` link from the dashboard, search for the template you want to use (e.g. `express starter`), and then select it. This will take you into the same "new repo" flow as above, but will display a `Template` panel with the template's `README` contents in it. Between the new repo + template repo flow, and the addition of brainstorming, we're excited to see how much we can improve the process of bootstrapping new projects💙
+
+此外，如果你想从现有模板创建一个存储库（而不是一个空白存储库），那么只需从仪表板中点击`选择一个存储库`链接，搜索你想要使用的模板（例如`express starter`），然后选择它。这将带你进入与上述相同的“新存储库”流程，但会显示一个包含模板`README`内容的`模板`面板。在新存储库+模板存储库流程之间，以及头脑风暴的添加，我们很高兴看到我们可以在多大程度上改进引导新项目的过程💙
+
+### VS Code: Implement/revise specific files
+
+The CW extension for VS Code now allows you to select specific files in the plan that you'd like to implement (by selecting their respective checkboxes in the `Plan` view). Additionally, you can now NL-revise specific files as well, by clicking the target icon in their file tab, and then entering the change you'd like to make.
+
+VS Code的CW扩展现在允许你选择计划中你想要实现的特定文件（通过在`计划`视图中选择各自的复选框）。此外，你现在还可以通过点击文件标签中的目标图标，然后输入你想要进行的更改来NL修订特定文件。
+
+Even cooler, you can NL-revise a file that isn't even part of the plan, and it will be added + revised automatically for you. These two changes match the behavior of the CW web/mobile client, and effectively round out the core iteration/feedback loop within VS Code.
+
+更酷的是，你可以NL修订一个甚至不是计划一部分的文件，它将自动为你添加+修订。这两个更改与CW Web/移动客户端的行为相匹配，并有效地完善了VS Code中的核心迭代/反馈循环。
+
+<img src="https://github.com/user-attachments/assets/a57ac8d8-d7a4-4cb9-b3da-c24bd91412a6" width="800px" />
+
+> Note: Since this extension is early, we're still not quite ready to publish it to the marketplace. We'll likely do that in the next couple of weeks, but until then, simply hit us up in [Discord](https://gh.io/next-discord) to grab the latest VSIX😎
+
+> 注意：由于此扩展尚处于早期阶段，我们仍未准备好将其发布到市场。我们可能会在接下来的几周内这样做，但在此之前，只需在[Discord](https://gh.io/next-discord)中联系我们以获取最新的VSIX😎
+
+### File tree filtering
+
+The integrated file tree now allows filtering it to show only the files that have changed in the session (along with their parent directories). This makes it easier to contextualize the changes being made, through the lens of your repository's folder structure. Additionally, this setting is persisted as part of the session, and so if you toggle it, it will remain filtered whenever you resume working on it later (including from your phone!).
+
+集成文件树现在允许过滤它以仅显示会话中已更改的文件（以及它们的父目录）。这使得通过存储库的文件夹结构来上下文化所做的更改变得更容易。此外，此设置作为会话的一部分持久化，因此如果你切换它，每当你稍后继续工作时，它将保持过滤状态（包括从手机上）。
+
+<table>
+   <tr>
+      <th>Before filtering</th>
+      <th>After filtering</th>
+   </tr>
+   <tr>
+      <td><img src="https://github.com/user-attachments/assets/9b98e458-bc2d-464b-ab23-9e7aace17802" width="300px" /></td>
+      <td><img src="https://github.com/user-attachments/assets/d57dfe8e-7d13-448f-a41a-294d92b6e314" width="300px" /></td>
+   </tr>
+</table>
+
+### Plan step filtering
+
+The `Plan` panel now allows filtering it to show only the steps that were introduced in the last revision/edit (and their associated files). As a plan grows in size/complexity, this filter can make it alot easier to focus your attention on only the steps that were recently made, and therefore, would benefit from a closer review. This filter builds upon the previously-added blue dots (which indicate an "unseen" plan step), and represent another step towards making plan revision feel much more incremental and easy to follow:muscle:
+
+`计划`面板现在允许过滤它以仅显示上次修订/编辑中引入的步骤（及其关联文件）。随着计划的规模/复杂性增加，此过滤器可以使你更容易专注于最近做出的步骤，因此，这些步骤将受益于更仔细的审查。此过滤器基于先前添加的蓝点（表示“未见”计划步骤），并代表了使计划修订感觉更加增量和易于遵循的另一步骤:muscle:
+
+<table>
+   <tr>
+      <th>Before filtering</th>
+      <th>After filtering</th>
+   </tr>
+   <tr>
+      <td><img src="https://github.com/user-attachments/assets/88a5e18f-cfce-4cc1-8291-d807e9e92908" width="300px" /></td>
+      <td><img src="https://github.com/user-attachments/assets/550dc719-890f-4b43-9c65-6a6460901a00" width="400px" /></td>
+   </tr>
+</table>
+
+### Improved build/test/run inference
+
+When you click the `Build`, `Test` or `Run` buttons in the integrated terminal, CW will now provide better suggestions for the neccessary shell commands needed to run them. In particular, we now include any Actions workflows, package manifests (e.g. `package.json`), and the `CONTRIBUTING.md` file (if it exists) in the context, which allows CW to more properly infer the best way to build/test/run your code.
+
+当你点击集成终端中的`构建`、`测试`或`运行`按钮时，CW现在将为运行它们所需的必要shell命令提供更好的建议。特别是，我们现在在上下文中包含任何Actions工作流、包清单（例如`package.json`）和`CONTRIBUTING.md`文件（如果存在），这使得CW能够更正确地推断出构建/测试/运行代码的最佳方式。
+
+<img src="https://github.com/user-attachments/assets/d0a89f46-d447-49d6-84f1-b623e41441f2" width="600px" />
+
+### Plan + implement
+
+After writing/editing a task, you can now generate the plan and implementation in a single step. As opposed to generating the plan, and then clicking the `Implement` button after its done. For simple/straight-forward tasks, this gives you the option to jump straight to code, and then refine things further from there. And if you notice that the plan isn't quite right while the code is being generated, you can easily cancel, revise the plan, and then re-implement. That way you don't lose any steerability when taking advantage of this shortcut😎
+
+在编写/编辑任务后，你现在可以在一个步骤中生成计划和实施。与生成计划相反，然后在完成后点击`实施`按钮。对于简单/直接的任务，这使你可以选择直接跳到代码，然后从那里进一步完善。如果你注意到在生成代码时计划不太正确，你可以轻松取消，修订计划，然后重新实施。这样，在利用此快捷方式时，你不会失去任何可控性😎
+
+<img src="https://github.com/user-attachments/assets/827a850a-ca2b-4e05-8abf-15eec6d3609b" width="400px" />
+
+### URL context management
+
+When a task references external URLs (e.g. docs), you can now exclude them from the session context, by clicking their associated trash can icon (within the `Additional context` section of the `Task` panel). Behind the scenes, this simply updates the task description by wrapping the selected URL in backticks (so that it's treated as raw markdown). But since a URL might be buried in an issue description/call stack, or could occur multiple times within the task definition, this new button should make it a lot easier to properly manage the context that you want CW to consider👍
+
+当一个任务引用外部URL（例如，文档）时，你现在可以通过点击其关联的垃圾桶图标（在`任务`面板的`附加上下文`部分内）将其排除在会话上下文之外。在幕后，这只是通过将选定的URL用反引号包裹来更新任务描述（以便将其视为原始markdown）。但由于URL可能埋在问题描述/调用堆栈中，或可能在任务定义中多次出现，此新按钮应使你更容易正确管理你希望CW考虑的上下文👍
+
+<img src="https://github.com/user-attachments/assets/0366732a-b949-4f6f-b471-8e4bb1526081" width="600px" />
+
+## 📅 20 September 2024
+
+- [Plan commands](#plan-commands)
+- [Integrated file tree](#integrated-file-tree)
+- [New plan step indicators](#new-plan-step-indicators)
+- [Latest changes filter](#latest-changes-filter)
+- [Devcontainer tasks improvements](#devcontainer-tasks-improvements)
+- [VS Code: Planning & implementing](#vs-code-planning--implementing)
+- [URL task context](#url-task-context)
+- [Cancellation improvements](#cancellation-improvements)
+
+### Plan commands
+
+In addition to adding/editing/deleting code, the `Plan` can now include terminal commands, whenever they're needed to properly complete a task. For example, if a task requires the use of a new 3rd-party dependency, then instead of editing a package manifest file (e.g. `package.json`), the plan will now suggest running the appropriate package manager (e.g. `npm install`). This has the advantage of ensuring you install the latest dependency version, as well as updating any respective lock files.
+
+除了添加/编辑/删除代码外，`计划`现在可以包括终端命令，只要它们是正确完成任务所需的。例如，如果一个任务需要使用新的第三方依赖项，那么计划现在将建议运行适当的包管理器（例如`npm install`），而不是编辑包清单文件（例如`package.json`）。这具有确保你安装最新依赖项版本以及更新任何相应锁定文件的优点。
+
+Like everything else in CW, this new `Commands` section is fully editable, and so you can take, tweak, or ignore the provided suggestions. However, once you're happy with them, you can simply click the `Execute all` button, which will spin up the integrated terminal (if needed), run the commands, and then display their status. Any files that are edited as a result of these commands being executed, will then be displayed in the `Files changed` list, just like if you edited them directly🙌
+
+与CW中的其他所有内容一样，这个新的`命令`部分是完全可编辑的，因此你可以接受、调整或忽略提供的建议。然而，一旦你对它们感到满意，你只需点击`全部执行`按钮，这将启动集成终端（如果需要），运行命令，然后显示其状态。由于执行这些命令而编辑的任何文件将显示在`文件更改`列表中，就像你直接编辑它们一样🙌
+
+<img src="https://github.com/user-attachments/assets/98e82301-450e-45f0-8f02-3ff422cc3695" width="400px" />
+
+> Note: This feature isn't currently enabled by default. So if you'd like to give it a try, you'll need to open your avatar menu in the upper-right, select `Experiments`, and then check the `Allow shell command generation in the plan` setting.
+
+> 注意：此功能目前默认未启用。因此，如果你想尝试一下，你需要打开右上角的头像菜单，选择`实验`，然后勾选`允许在计划中生成shell命令`设置。
+
+### Integrated file tree
+
+We've replaced the file explorer modal with a new integrated file tree, which is displayed as a right-side panel, and retains all of the same features as before (e.g. file name filtering, change annotations). This has the advantage of allowing you to navigate the repository's files, while simultaneously viewing the task/spec/plan and code. Additionally, when you select a file from the tree, it now opens the file as a tab. This is nice, because you can then immediately perform an NL revision to it, which makes the flow of editing new files extremely simple: filter for it in the tree, open it, then revise it💙
+
+我们用一个新的集成文件树替换了文件资源管理器模式，它显示为右侧面板，并保留了以前的所有相同功能（例如，文件名过滤，更改注释）。这具有允许你导航存储库文件的优点，同时查看任务/规范/计划和代码。此外，当你从树中选择一个文件时，它现在作为一个标签打开文件。这很好，因为你可以立即对其进行NL修订，这使得编辑新文件的流程非常简单：在树中过滤它，打开它，然后修订它💙
+
+![image](https://github.com/user-attachments/assets/24c299a9-54d8-4d15-8b35-f28489997403)
+
+### New plan step indicators
+
+When you perform an NL revision against the plan, new plan steps are now annotated with a blue dot. This is meant to indicate that they are "unseen", and help focus your attention on the net-new changes that were made, as a result of your request. This experience builds upon the previous change to make plan revision incremental, and we think it makes the overall iteration flow feel a lot more predictable (e.g. you don't have to try to spot what changes CW made based on your request).
+
+当你对计划执行NL修订时，新计划步骤现在用蓝点注释。这意味着它们是“未见”的，并帮助你专注于由于你的请求而做出的净新更改。这种体验基于先前的更改，使计划修订增量化，我们认为这使得整体迭代流程感觉更加可预测（例如，你不必尝试发现CW根据你的请求做出了哪些更改）。
+
+In order to prevent these dots from becoming noisy, they're only visible until the next time you 1) edit the plan, or 2) perform a subsequent revision/implementation. That way, they always indicate steps you haven't "seen", and don't accumulate as you further iterate on your session. Additionally, the dots aren't added to plan steps you add/edit yourself. And they don't persist across browser refreshes. That way, they simply represent AI-contributed changes, that were introduced by a just-made revision👍
+
+为了防止这些点变得嘈杂，它们仅在下次1）编辑计划或2）执行后续修订/实施之前可见。这样，它们总是表示你没有“看到”的步骤，并且在你进一步迭代会话时不会累积。此外，这些点不会添加到你自己添加/编辑的计划步骤中。它们不会在浏览器刷新时持久存在。这样，它们只是代表AI贡献的更改，这些更改是由刚刚进行的修订引入的👍
+
+<img src="https://github.com/user-attachments/assets/88d2cb07-0897-46c4-b4e3-6c5c61b1b006" width="400px" />
+
+### Latest changes filter
+
+The `Files changed` section has a new filter called `Latest changes`, which allows you to focus on the edits that were made by the most recent NL revision/implementation. This makes it a lot easier to perform iterations, and then immediately see the impact of that change (as opposed to all the changes from the session). And when combined with the new plan step indicators, this makes NL revision a lot nicer, since you can perform a revision, and then quickly spot the resulting change in both the plan and the code.
+
+`文件更改`部分有一个新的过滤器，称为`最新更改`，这允许你专注于最近的NL修订/实施所做的编辑。这使得执行迭代变得更加容易，然后立即看到该更改的影响（而不是会话中的所有更改）。当与新的计划步骤指示器结合使用时，这使得NL修订变得更加愉快，因为你可以执行修订，然后快速发现计划和代码中的结果更改。
+
+<img src="https://github.com/user-attachments/assets/c15376cd-e2e1-4fba-b115-34036fda2698" width="300px" />
+
+### Devcontainer tasks improvements
+
+When you open the integrated terminal, the `Build`, `Test`, `Run` buttons are now always visible, even if the repo you're working against doesn't define them in a `devcontainer.json` file. And when you click any of them, CW will generate an AI-suggestion for the appropriate command(s) needed to run them (e.g. `npm run compile`).
+
+当你打开集成终端时，`构建`、`测试`、`运行`按钮现在始终可见，即使你正在处理的存储库没有在`devcontainer.json`文件中定义它们。当你点击其中任何一个时，CW将为运行它们所需的适当命令生成AI建议（例如`npm run compile`）。
+
+<img src="https://github.com/user-attachments/assets/d0a89f46-d447-49d6-84f1-b623e41441f2" width="600px" />
+
+If the command looks right, then you can submit it, which will execute it in the terminal, and then persist it to the `devcontainer.json` file. You can then include this file in your PR/commit, and then all subsequent runs of that task (either build, test, or run) will be able to use this configured command in a single-click. The nice thing about this flow, is that it makes it easier for every repo to configure their build/test/run commands, without needing to remember how to do it. Simply click the buttons, and then let CW suggest and configure it for you🚀
+
+如果命令看起来正确，那么你可以提交它，这将在终端中执行它，然后将其持久化到`devcontainer.json`文件中。然后你可以在你的PR/提交中包含此文件，然后该任务的所有后续运行（无论是构建、测试还是运行）都可以在单击中使用此配置的命令。此流程的好处在于，它使每个存储库更容易配置其构建/测试/运行命令，而无需记住如何执行。只需点击按钮，然后让CW为你建议和配置它🚀
+
+<img src="https://github.com/user-attachments/assets/86555379-98cd-4314-bf5b-9d481dc6ff8d" width="600xp" />
+
+### VS Code: Planning & implementing
+
+The CW extension for VS Code now allows you to generate, regenerate, revise, and implement the plan. Entirely within the editor🔥 We still require you to **start** sessions from the CW web/mobile client, but once you have a task started, you can resume it within VS Code, and perform the most common iteration operations from there.
+
+VS Code的CW扩展现在允许你生成、重新生成、修订和实施计划。完全在编辑器内🔥我们仍然要求你从CW Web/移动客户端**开始**会话，但一旦你开始了一个任务，你可以在VS Code中恢复它，并从那里执行最常见的迭代操作。
+
+> Note: Since this extension is early, we're still not quite ready to publish it to the marketplace. We'll likely do that in the next couple of weeks, but until them, simply hit us up in [Discord](https://gh.io/next-discord) to grab the latest VSIX😎
+
+> 注意：由于此扩展尚处于早期阶段，我们仍未准备好将其发布到市场。我们可能会在接下来的几周内这样做，但在此之前，只需在[Discord](https://gh.io/next-discord)中联系我们以获取最新的VSIX😎
+
+### URL task context
+
+When a task references URLs, they will now be displayed in the `Additional context` section of the `Task` panel. This ensures that you're always aware of any external context being considered, and you can control if it needed (e.g. deleting a link that is confusing the plan/etc.).
+
+当一个任务引用URL时，它们现在将显示在`任务`面板的`附加上下文`部分。这确保你始终了解正在考虑的任何外部上下文，并且你可以控制是否需要（例如，删除一个使计划混淆的链接等）。
+
+<img src="https://github.com/user-attachments/assets/ce02119f-35c4-49dc-bd3e-c4c831f41e01" width="400px" />
+
+> Note: By default, CW will spider URLs that point at GitHub issues, PRs, and repo files. However, if you want it to spider external web URLs, then you need to enable the `Utilize referenced generic web content in analysis` setting in the `Experiments` dialog (underneath your avatar menu).
+
+> 注意：默认情况下，CW将抓取指向GitHub问题、PR和存储库文件的URL。但是，如果你希望它抓取外部Web URL，那么你需要在`实验`对话框（在头像菜单下）中启用`在分析中利用引用的通用Web内容`设置。
+
+### Cancellation improvements
+
+When a plan or implementation is in-progress, clicking the cancel button should now feel immediate. Additionally, if you cancel a file implementation mid-way, it will now revert the file back to its previous state (before editing it), as opposed to the previous behavior (which marked the file as `Cancelled`, and looked pretty weird). This is meaningful because when you perform an NL revision, CW automatically updates the plan and then implements it. And in order to make this UX feel delightful, we wanted to make sure you could cancel it at any time, and get the immediate/expected results.
+
+当一个计划或实施正在进行时，点击取消按钮现在应该感觉立即生效。此外，如果你在中途取消文件实施，它现在将文件恢复到其先前状态（在编辑之前），而不是先前的行为（将文件标记为`已取消`，看起来很奇怪）。这是有意义的，因为当你执行NL修订时，CW会自动更新计划然后实施它。为了使这种用户体验感觉愉快，我们希望确保你可以随时取消它，并获得立即/预期的结果。
+
+## 📅 13 September 2024
+
+- [VS Code session continuation](#vs-code-session-continuation)
+- [Incremental plan revision](#incremental-plan-revision)
+- [Improved task context](#improved-task-context)
+- [New specification UX](#new-specification-ux)
+- [Planned file placeholders](#planned-file-placeholders)
+- [Branch switching](#branch-switching)
+- [Whitespace changes](#whitespace-changes)
+
+### VS Code session continuation
+
+We're introducing a new VS Code extension, which allows you to resume CW sessions within your editor. This allows you to start tasks from the CW web app/PWA, and after feeling good about the implementation, finish the task from the comfort of your fully-configured dev environment (e.g. using your favorite extensions, color theme, keybindings, etc.)🤗
+
+我们引入了一个新的VS Code扩展，允许你在编辑器中恢复CW会话。这使你可以从CW Web应用程序/PWA开始任务，并在对实施感到满意后，从你完全配置的开发环境的舒适性中完成任务（例如，使用你最喜欢的扩展、颜色主题、键绑定等）🤗
+
+Additionally, this extension allows you to debug and run arbitrary client/desktop projects (e.g. mobile apps, Chrome extensions, etc.), without needing to push/pull the session's code to an intermediate branch. This works because the VS Code extension supports bi-directional file syncing with the CW service/web client. And so as you make changes in one client, they're immediately available in the other. Collectively, this allows you to start and finish work from whichever client is most convenient😎
+
+此外，此扩展允许你调试和运行任意客户端/桌面项目（例如，移动应用程序，Chrome扩展等），而无需将会话的代码推送/拉取到中间分支。这是因为VS Code扩展支持与CW服务/Web客户端的双向文件同步。因此，当你在一个客户端中进行更改时，它们会立即在另一个客户端中可用。总的来说，这使你可以从最方便的客户端开始和完成工作😎
+
+<img src="https://github.com/user-attachments/assets/5ae9c6fb-c4de-4f4e-b37a-83b93e373c74" width="700px" /><br />
+     
+> Note: This extension is very early, and therefore, we're not publishing it to the VS Code marketplace just yet. So if you'd like to give it a try and send us feedback, hit us up on the [GitHub Next Discord server](https://gh.io/next-discord) and we'll send you the VSIX.
+
+> 注意：此扩展还处于非常早期阶段，因此，我们尚未将其发布到VS Code市场。因此，如果你想尝试一下并向我们发送反馈，请在[GitHub Next Discord服务器](https://gh.io/next-discord)上联系我们，我们将向你发送VSIX。
+     
+### Incremental plan revision
+
+When you perform a NL revision (using the pretty input bar at the bottom💙), the plan is now updated incrementally, as opposed to being completely regenerated. This not only makes it faster to perform iterations, but it also makes it clearer what did and didn't change as a result of your request. To get a sense for how much nicer this feels, check out the following demo😻
+
+当你执行NL修订时（使用底部的漂亮输入栏💙），计划现在是增量更新的，而不是完全重新生成的。这不仅使执行迭代更快，而且使你更清楚地了解由于你的请求而发生了哪些变化和未发生哪些变化。要了解这种感觉有多好，请查看以下演示😻
+
+<img src="https://github.com/user-attachments/assets/155e0f56-2707-44dc-98f4-9f704b119496" width="800px" />
+
+### Improved task context
+
+The `Task` panel now includes an `Additional context` footer, which is visible when you open an issue (that has comments), or when you're working on a project that includes repository-wide instructions (e.g. a `.github/copilot-workspace/CONTRIBUTING.md` file).
+
+`任务`面板现在包括一个`附加上下文`页脚，当你打开一个有评论的问题时，或当你正在处理一个包含存储库范围指令的项目时（例如`.github/copilot-workspace/CONTRIBUTING.md`文件），它是可见的。
+
+<img src="https://github.com/user-attachments/assets/2a8494fd-adcb-48a6-9414-658b72e62ad2" width="500px" />
+     
+This is helpful, because it provides visibility into the external context that will be taken into account when analyzing/planning your task. Additionally, it lets you better predict and control the outcome of your session. For example, if you see a `Repository instructions` context item, then you can click it and immediately see the contents of the file (e.g. so you can know what it defines). And if you're working on an issue, that has comments you don't want included (e.g. becuase they're just "conversational noise"), then you can click the trash can icon next to them, and remove them consideration.
+
+这是有帮助的，因为它提供了对在分析/计划任务时将考虑的外部上下文的可见性。此外，它使你能够更好地预测和控制会话的结果。例如，如果你看到一个`存储库指令`上下文项，那么你可以点击它并立即查看文件的内容（例如，这样你可以知道它定义了什么）。如果你正在处理一个有评论的问题，而你不希望包含这些评论（例如，因为它们只是“对话噪音”），那么你可以点击它们旁边的垃圾桶图标，并将其删除。
+
+### New specification UX
+
+In order to simplify the CW workflow, we're removing the `Specification` panel from the timeline, and introducing it as optional context to the `Task`. That way, if your task description already defines the sufficient details for your intent, then you can jump straight to planning. However, if you'd like CW to help expand/ellaborate/explore on your description, then you can ask it to add a spec, and then treat that as additional input to the plan🚀 (along with any comments and repo-wide instructions).
+
+为了简化CW工作流程，我们将从时间线中删除`规范`面板，并将其作为`任务`的可选上下文引入。这样，如果你的任务描述已经定义了你的意图的足够细节，那么你可以直接跳到计划。然而，如果你希望CW帮助扩展/详细说明/探索你的描述，那么你可以要求它添加一个规范，然后将其视为计划的附加输入🚀（以及任何评论和存储库范围的指令）。
+
+Since this is a noticeable change, we're initially introducing it as an opt-in setting, which you can enable via the `Move specficiation to task panel` option in the `Experiments` dialog. When enabled, you'll see an `Add specification` button in the `Additional context` section of the `Task` panel. When you click that, it will generate the spec as usual, and then display a `Specification` entry in the context section for the task. If you click this, it will open the spec as a file tab, which let's you edit, revise, or regenerate the content. But with a much nicer, and full-screen view⭐
+
+由于这是一个显着的变化，我们最初将其作为选择加入设置引入，你可以通过`实验`对话框中的`将规范移动到任务面板`选项启用它。启用后，你将在`任务`面板的`附加上下文`部分看到一个`添加规范`按钮。当你点击它时，它将像往常一样生成规范，然后在任务的上下文部分显示一个`规范`条目。如果你点击此条目，它将规范作为文件标签打开，这让你可以编辑、修订或重新生成内容。但具有更好和全屏视图⭐
+
+<img src="https://github.com/user-attachments/assets/41b2864a-3b9f-45
