@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "test": "grep -E 'def test_|class Test' perfect_numbers.py",
+    "build": "No build commands are necessary for this repository.",
+    "launch": "python3 perfect_numbers.py"
+  }
+}
